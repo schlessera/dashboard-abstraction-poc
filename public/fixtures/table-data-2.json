@@ -1,0 +1,11 @@
+{
+  "title": "Product Inventory Status",
+  "headers": ["Product", "Price", "Stock", "Category", "Rating"],
+  "rows": [
+    ["Laptop Pro", "$1299", "45", "Electronics", "4.5"],
+    ["Desk Chair", "$199", "23", "Furniture", "4.2"],
+    ["Coffee Maker", "$89", "67", "Appliances", "4.7"],
+    ["Wireless Mouse", "$29", "122", "Accessories", "4.3"],
+    ["Monitor 27\"", "$349", "34", "Electronics", "4.6"]
+  ]
+} 

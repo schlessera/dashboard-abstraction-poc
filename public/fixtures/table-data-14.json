@@ -1,0 +1,10 @@
+{
+  "title": "Tech Company Profiles",
+  "headers": ["Company", "Industry", "Founded", "Employees", "Revenue"],
+  "rows": [
+    ["Tesla", "Automotive", "2003", "100,000", "$53.8B"],
+    ["Apple", "Technology", "1976", "154,000", "$365.8B"],
+    ["Nike", "Apparel", "1964", "73,300", "$44.5B"],
+    ["Netflix", "Entertainment", "1997", "11,300", "$29.7B"]
+  ]
+} 

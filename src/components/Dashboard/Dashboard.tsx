@@ -55,15 +55,31 @@ export const Dashboard: React.FC<DashboardProps> = ({
 
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
         <h2>Add Widget</h2>
-        {widgetFactory.getWidgetTypes().map(({ type, label, description }) => (
-          <div key={type} style={{ marginBottom: '1rem' }}>
-            <Button 
-              label={label}
-              onClick={() => addWidget(type)}
-              title={description}  // Shows description on hover
-            />
-          </div>
-        ))}
+        <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+          <thead>
+            <tr style={{ backgroundColor: '#f0f0f0' }}>
+              <th style={{ fontWeight: 'normal', textAlign: 'left', padding: '0.5rem' }}>Name</th>
+              <th style={{ fontWeight: 'normal', textAlign: 'left', padding: '0.5rem' }}>Description</th>
+              <th style={{ fontWeight: 'normal', textAlign: 'left', padding: '0.5rem' }}>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {widgetFactory.getWidgetTypes().map(({ type, label, description }) => (
+              <tr key={type} style={{ borderBottom: '1px solid #e0e0e0' }}>
+                <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>{label}</td>
+                <td style={{ padding: '0.5rem' }}>{description}</td>
+                <td style={{ padding: '0.5rem' }}>
+                  <Button
+                    primary
+                    size="small"
+                    label="Add"
+                    onClick={() => addWidget(type)}
+                  />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </Modal>
     </>
   );

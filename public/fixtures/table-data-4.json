@@ -1,0 +1,10 @@
+{
+  "title": "Global Population Centers",
+  "headers": ["Country", "Capital", "Population"],
+  "rows": [
+    ["Japan", "Tokyo", "37.4M"],
+    ["France", "Paris", "11.1M"],
+    ["Brazil", "Brasília", "4.7M"],
+    ["Egypt", "Cairo", "20.9M"]
+  ]
+} 

@@ -1,0 +1,27 @@
+.storybook-table-container {
+  overflow-x: auto;
+  max-width: 100%;
+  padding: 1rem;
+}
+
+.storybook-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.storybook-table th,
+.storybook-table td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.storybook-table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+}
+
+.storybook-table tr:hover {
+  background-color: #f8f9fa;
+} 

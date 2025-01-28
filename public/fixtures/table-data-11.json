@@ -1,0 +1,9 @@
+{
+  "title": "World Languages Statistics",
+  "headers": ["Language", "Native Speakers", "Total Speakers", "Family"],
+  "rows": [
+    ["Mandarin", "920M", "1.1B", "Sino-Tibetan"],
+    ["Spanish", "460M", "550M", "Indo-European"],
+    ["English", "370M", "1.5B", "Indo-European"]
+  ]
+} 

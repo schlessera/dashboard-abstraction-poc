@@ -32,9 +32,9 @@ export const PrepopulatedDashboard: Story = {
   args: {
     widgetFactory: widgetFactory,
     initialWidgets: [
-      { id: '1', type: 'popular-content' },
-      { id: '2', type: 'search-traffic' },
-      { id: '3', type: 'doggo' },
+      { id: '1', type: 'table' },
+      { id: '2', type: 'table' },
+      { id: '3', type: 'table' },
     ],
   },
 };

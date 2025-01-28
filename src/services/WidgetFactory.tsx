@@ -3,10 +3,11 @@ import { MostPopularContent } from '../components/Widget/MostPopularContent';
 import { SearchTraffic } from '../components/Widget/SearchTraffic';
 import { DoggoWidget } from '../components/Widget/DoggoWidget';
 import React from 'react';
+import { TableWidget } from '../components/Widget/TableWidget';
 
 interface WidgetInstance {
   id: string;
-  type: 'popular-content' | 'search-traffic' | 'doggo';
+  type: 'popular-content' | 'search-traffic' | 'doggo' | 'table';
 }
 export interface WidgetTypeInfo {
   type: WidgetInstance['type'];
@@ -35,13 +36,25 @@ export class WidgetFactory implements IWidgetFactory {
       type: 'doggo',
       label: 'Random Dog',
       description: 'Shows a random dog image'
+    },
+    {
+      type: 'table',
+      label: 'Data Table',
+      description: 'Displays random tabular data'
     }
   ];
+
+  private static readonly TABLE_FILE_COUNT = 20;
 
   constructor(private dataProvider: DataProvider) {}
 
   getWidgetTypes(): WidgetTypeInfo[] {
     return WidgetFactory.widgetTypes;
+  }
+
+  private getRandomTableFile(): string {
+    const fileNumber = Math.floor(Math.random() * WidgetFactory.TABLE_FILE_COUNT) + 1;
+    return `table-data-${fileNumber}.json`;
   }
 
   createWidget(widgetId: string, type: WidgetInstance['type'], onRemove?: (id: string) => void): React.ReactElement {
@@ -65,6 +78,13 @@ export class WidgetFactory implements IWidgetFactory {
           key={widgetId}
           id={widgetId}
           onRemove={onRemove}
+        />;
+      case 'table':
+        return <TableWidget
+          key={widgetId}
+          id={widgetId}
+          onRemove={onRemove}
+          filename={this.getRandomTableFile()}
         />;
       default:
         throw new Error(`Unknown widget type: ${type}`);

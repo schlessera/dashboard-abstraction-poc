@@ -1,0 +1,13 @@
+{
+  "title": "Popular Recipe Guide",
+  "headers": ["Recipe", "Prep Time", "Difficulty"],
+  "rows": [
+    ["Spaghetti Carbonara", "20 min", "Easy"],
+    ["Beef Wellington", "180 min", "Hard"],
+    ["Caesar Salad", "15 min", "Easy"],
+    ["Tiramisu", "45 min", "Medium"],
+    ["Ramen", "120 min", "Hard"],
+    ["Greek Salad", "10 min", "Easy"],
+    ["Lasagna", "90 min", "Medium"]
+  ]
+} 

@@ -15,8 +15,11 @@ export class RemoteDataProvider {
   async fetch<T>(): Promise<T> {
     const { endpoint, config, type } = this.props;
     
-    // Construct URL with query parameters if they exist
-    const url = new URL(endpoint);
+    // Handle both absolute and relative URLs
+    const url = endpoint.startsWith('http') 
+      ? new URL(endpoint)
+      : new URL(endpoint, window.location.origin);
+
     if (config?.params) {
       Object.entries(config.params).forEach(([key, value]) => {
         url.searchParams.append(key, value);

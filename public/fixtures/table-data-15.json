@@ -1,0 +1,11 @@
+{
+  "title": "Musical Instrument Guide",
+  "headers": ["Instrument", "Type", "Range"],
+  "rows": [
+    ["Violin", "Strings", "G3-A7"],
+    ["Piano", "Percussion", "A0-C8"],
+    ["Flute", "Woodwind", "C4-C7"],
+    ["Trumpet", "Brass", "F#3-D6"],
+    ["Guitar", "Strings", "E2-E6"]
+  ]
+} 

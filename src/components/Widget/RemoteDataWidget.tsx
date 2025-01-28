@@ -6,6 +6,7 @@ import { CacheService } from '../../services/CacheService';
 interface RemoteDataWidgetProps extends Omit<DataDrivenWidgetProps, 'dataProvider'> {
   remoteDataProvider: RemoteDataProvider;
   renderData: (data: any) => React.ReactNode;
+  adaptTitle?: (data: any) => string;
   cacheKey?: string;
   cacheTTL?: number;
 }
@@ -13,6 +14,7 @@ interface RemoteDataWidgetProps extends Omit<DataDrivenWidgetProps, 'dataProvide
 export const RemoteDataWidget: React.FC<RemoteDataWidgetProps> = ({
   remoteDataProvider,
   renderData,
+  adaptTitle,
   cacheKey,
   cacheTTL,
   ...widgetProps
@@ -59,6 +61,7 @@ export const RemoteDataWidget: React.FC<RemoteDataWidgetProps> = ({
     <DataDrivenWidget
       {...widgetProps}
       dataProvider={remoteDataProvider}
+      title={adaptTitle ? adaptTitle(data) : widgetProps.title}
     >
       {loading ? (
         <div>Loading...</div>

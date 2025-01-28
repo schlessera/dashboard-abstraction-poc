@@ -1,0 +1,11 @@
+{
+  "title": "Color Palette Reference",
+  "headers": ["Paint Color", "RGB", "Hex", "Type"],
+  "rows": [
+    ["Forest Green", "34,139,34", "#228B22", "Cool"],
+    ["Crimson", "220,20,60", "#DC143C", "Warm"],
+    ["Royal Blue", "65,105,225", "#4169E1", "Cool"],
+    ["Golden Yellow", "255,223,0", "#FFD700", "Warm"],
+    ["Deep Purple", "128,0,128", "#800080", "Cool"]
+  ]
+} 

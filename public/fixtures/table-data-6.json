@@ -1,0 +1,11 @@
+{
+  "title": "Highest Grossing Films",
+  "headers": ["Movie", "Director", "Box Office"],
+  "rows": [
+    ["Avatar", "James Cameron", "$2.9B"],
+    ["Titanic", "James Cameron", "$2.2B"],
+    ["Star Wars", "George Lucas", "$2.1B"],
+    ["Jurassic Park", "Steven Spielberg", "$1.9B"],
+    ["The Matrix", "Wachowskis", "$1.6B"]
+  ]
+} 

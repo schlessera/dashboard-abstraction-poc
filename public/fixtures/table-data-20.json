@@ -1,0 +1,10 @@
+{
+  "title": "US National Parks Overview",
+  "headers": ["National Park", "State", "Size", "Established", "Visitors/Year"],
+  "rows": [
+    ["Yellowstone", "Wyoming", "2.2M acres", "1872", "4.1M"],
+    ["Yosemite", "California", "759K acres", "1890", "3.3M"],
+    ["Grand Canyon", "Arizona", "1.2M acres", "1919", "4.5M"],
+    ["Zion", "Utah", "147K acres", "1919", "4.5M"]
+  ]
+} 
