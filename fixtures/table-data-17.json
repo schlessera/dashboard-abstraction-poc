@@ -1,0 +1,10 @@
+{
+  "title": "Busiest Airports Worldwide",
+  "headers": ["Airport", "City", "Passengers/Year"],
+  "rows": [
+    ["ATL", "Atlanta", "110.5M"],
+    ["PEK", "Beijing", "100.0M"],
+    ["DXB", "Dubai", "89.1M"],
+    ["LAX", "Los Angeles", "88.1M"]
+  ]
+} 

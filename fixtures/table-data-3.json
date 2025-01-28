@@ -1,0 +1,11 @@
+{
+  "title": "Upcoming Events Schedule",
+  "headers": ["Date", "Event", "Location", "Attendees", "Status", "Budget"],
+  "rows": [
+    ["2024-04-15", "Tech Conference", "Convention Center", "500", "Confirmed", "$50,000"],
+    ["2024-05-01", "Team Building", "Adventure Park", "50", "Planning", "$5,000"],
+    ["2024-06-10", "Product Launch", "Grand Hotel", "200", "Pending", "$25,000"],
+    ["2024-07-22", "Workshop", "Training Center", "30", "Confirmed", "$3,000"],
+    ["2024-08-15", "Annual Meeting", "HQ Office", "100", "Draft", "$15,000"]
+  ]
+} 

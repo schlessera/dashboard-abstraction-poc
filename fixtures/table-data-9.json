@@ -1,0 +1,8 @@
+{
+  "title": "Top Rated Video Games",
+  "headers": ["Game", "Platform", "Release", "Genre", "Publisher", "Rating", "Price"],
+  "rows": [
+    ["Zelda: BOTW", "Switch", "2017", "Action-RPG", "Nintendo", "97", "$59.99"],
+    ["God of War", "PS5", "2022", "Action", "Sony", "94", "$69.99"]
+  ]
+} 

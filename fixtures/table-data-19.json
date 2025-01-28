@@ -1,0 +1,9 @@
+{
+  "title": "Premium Coffee Guide",
+  "headers": ["Coffee", "Origin", "Roast", "Notes", "Price/lb"],
+  "rows": [
+    ["Arabica", "Ethiopia", "Medium", "Fruity", "$15"],
+    ["Robusta", "Vietnam", "Dark", "Strong", "$12"],
+    ["Kona", "Hawaii", "Medium", "Sweet", "$45"]
+  ]
+} 

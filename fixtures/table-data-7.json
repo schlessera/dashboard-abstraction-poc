@@ -1,0 +1,12 @@
+{
+  "title": "Solar System Overview",
+  "headers": ["Planet", "Distance from Sun", "Moons", "Type"],
+  "rows": [
+    ["Mercury", "57.9M km", "0", "Terrestrial"],
+    ["Venus", "108.2M km", "0", "Terrestrial"],
+    ["Earth", "149.6M km", "1", "Terrestrial"],
+    ["Mars", "227.9M km", "2", "Terrestrial"],
+    ["Jupiter", "778.5M km", "79", "Gas Giant"],
+    ["Saturn", "1.4B km", "82", "Gas Giant"]
+  ]
+} 

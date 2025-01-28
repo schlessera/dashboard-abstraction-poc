@@ -1,0 +1,10 @@
+{
+  "title": "Global City Weather Report",
+  "headers": ["City", "AQI", "Temperature", "Humidity", "Wind"],
+  "rows": [
+    ["London", "52", "15°C", "75%", "12 km/h"],
+    ["Beijing", "158", "22°C", "45%", "8 km/h"],
+    ["Sydney", "34", "28°C", "62%", "15 km/h"],
+    ["New York", "48", "18°C", "58%", "20 km/h"]
+  ]
+} 

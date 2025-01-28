@@ -1,0 +1,12 @@
+{
+  "title": "Fitness Exercise Database",
+  "headers": ["Exercise", "Target Muscle", "Equipment", "Difficulty"],
+  "rows": [
+    ["Bench Press", "Chest", "Barbell", "Intermediate"],
+    ["Squat", "Legs", "Barbell", "Advanced"],
+    ["Pull-up", "Back", "Bar", "Advanced"],
+    ["Push-up", "Chest", "None", "Beginner"],
+    ["Plank", "Core", "None", "Beginner"],
+    ["Deadlift", "Back", "Barbell", "Advanced"]
+  ]
+} 

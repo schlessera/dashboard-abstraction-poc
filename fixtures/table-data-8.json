@@ -1,0 +1,10 @@
+{
+  "title": "Periodic Table Basics",
+  "headers": ["Element", "Symbol", "Atomic Number"],
+  "rows": [
+    ["Hydrogen", "H", "1"],
+    ["Helium", "He", "2"],
+    ["Lithium", "Li", "3"],
+    ["Beryllium", "Be", "4"]
+  ]
+} 

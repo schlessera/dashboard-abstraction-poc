@@ -1,0 +1,9 @@
+{
+  "title": "Sci-Fi Classics Library",
+  "headers": ["Book Title", "Author", "Genre", "Year", "Rating", "Pages"],
+  "rows": [
+    ["Dune", "Frank Herbert", "Sci-Fi", "1965", "4.8", "412"],
+    ["1984", "George Orwell", "Dystopian", "1949", "4.7", "328"],
+    ["Neuromancer", "William Gibson", "Cyberpunk", "1984", "4.5", "271"]
+  ]
+} 

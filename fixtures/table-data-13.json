@@ -1,0 +1,9 @@
+{
+  "title": "Crypto Market Snapshot",
+  "headers": ["Cryptocurrency", "Price", "24h Change", "Market Cap"],
+  "rows": [
+    ["Bitcoin", "$45,000", "+2.3%", "$850B"],
+    ["Ethereum", "$3,200", "-1.2%", "$380B"],
+    ["Cardano", "$1.20", "+5.7%", "$40B"]
+  ]
+} 
