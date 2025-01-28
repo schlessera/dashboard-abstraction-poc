@@ -8,6 +8,7 @@ on:
   workflow_dispatch:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+# We also need to be able to force-push to the gh-pages branch
 permissions:
   contents: read
   pages: write
@@ -54,7 +55,7 @@ jobs:
         with:
           target_branch: gh-pages
           build_dir: storybook-static
-          keep_history: false
+          keep_history: true
           jekyll: false
           fqdn: schlessera.github.io
         env:
