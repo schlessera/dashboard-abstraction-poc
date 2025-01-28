@@ -12,5 +12,11 @@ const config: StorybookConfig = {
     name: "@storybook/react-vite",
     options: {},
   },
+  viteFinal: (config) => {
+    if (process.env.GITHUB_ACTIONS) {
+      config.base = '/dashboard-abstraction-poc/';
+    }
+    return config;
+  },
 };
 export default config;
