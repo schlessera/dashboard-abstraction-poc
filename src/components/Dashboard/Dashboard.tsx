@@ -34,7 +34,7 @@ interface DashboardProps {
 
 interface WidgetInstance {
   id: string;
-  type: 'popular-content' | 'search-traffic';
+  type: 'popular-content' | 'search-traffic' | 'doggo';
 }
 
 export const Dashboard: React.FC<DashboardProps> = ({
@@ -84,6 +84,9 @@ export const Dashboard: React.FC<DashboardProps> = ({
         </button>
         <button onClick={() => addWidget('search-traffic')}>
           Search Traffic
+        </button>
+        <button onClick={() => addWidget('doggo')}>
+          Random Dog
         </button>
       </Modal>
     </>

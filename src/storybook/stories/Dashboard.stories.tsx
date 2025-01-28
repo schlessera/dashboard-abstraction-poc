@@ -34,6 +34,7 @@ export const PrepopulatedDashboard: Story = {
     initialWidgets: [
       { id: '1', type: 'popular-content' },
       { id: '2', type: 'search-traffic' },
+      { id: '3', type: 'doggo' },
     ],
   },
 };

@@ -1,6 +1,7 @@
 import { DataProvider } from './DataProvider';
 import { MostPopularContent } from '../components/Widget/MostPopularContent';
 import { SearchTraffic } from '../components/Widget/SearchTraffic';
+import { DoggoWidget } from '../components/Widget/DoggoWidget';
 import { WidgetInstance } from '../components/Dashboard/Dashboard';
 
 export interface IWidgetFactory {
@@ -24,6 +25,12 @@ export class WidgetFactory implements IWidgetFactory {
           key={widgetId} 
           id={widgetId} 
           dataProvider={this.dataProvider}
+          onRemove={onRemove}
+        />;
+      case 'doggo':
+        return <DoggoWidget
+          key={widgetId}
+          id={widgetId}
           onRemove={onRemove}
         />;
       default:
