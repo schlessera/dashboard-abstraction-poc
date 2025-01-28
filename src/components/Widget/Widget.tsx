@@ -1,5 +1,7 @@
 import React from 'react';
 import { Card } from '../Card/Card';
+import { Button } from '../Button/Button';
+import './Widget.css';
 
 export interface WidgetProps {
   id: string;
@@ -18,13 +20,19 @@ export const Widget: React.FC<WidgetProps & { children: React.ReactNode }> = ({
   return (
     <Card 
       title={title}
-      className={`widget ${className || ''}`}
+      className={`storybook-widget ${className || ''}`}
     >
-      {children}
+      <div className="storybook-widget-content">
+        {children}
+      </div>
       {onRemove && (
-        <button onClick={() => onRemove(id)} style={{ float: 'right' }}>
-          Remove
-        </button>
+        <div className="storybook-widget-button-container">
+          <Button 
+            size="small" 
+            label="Remove" 
+            onClick={() => onRemove(id)} 
+          />
+        </div>
       )}
     </Card>
   );
