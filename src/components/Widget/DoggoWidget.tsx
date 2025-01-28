@@ -36,12 +36,17 @@ const DogImage: React.FC<{
   }, [src]);
 
   return (
-    <div style={{ 
-      minHeight: height,
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center'
-    }}>
+    <div 
+      style={{ 
+        minHeight: height,
+        height: height,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        overflow: 'hidden',
+        position: 'relative'
+      }}
+    >
       {isImageLoading ? (
         <div>Loading image...</div>
       ) : (
@@ -49,11 +54,16 @@ const DogImage: React.FC<{
           src={src} 
           alt="Random dog" 
           style={{ 
-            width: '100%', 
-            height: 'auto',
-            borderRadius: '4px',
-            maxHeight: height,
-            objectFit: 'cover'
+            maxWidth: '100%',
+            maxHeight: '100%',
+            objectFit: 'contain',
+            position: 'absolute',
+            margin: 'auto',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            borderRadius: '4px'
           }} 
         />
       )}
