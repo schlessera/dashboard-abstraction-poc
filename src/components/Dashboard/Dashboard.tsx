@@ -1,41 +1,15 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import { Modal } from '../Modal/Modal';
+import { Button } from '../Button/Button';
 import { WidgetFactory } from '../../services/WidgetFactory';
 import './Dashboard.css';
 
-const DashboardContainer = styled.div`
-  padding: 20px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
-`;
-
-const AddWidgetButton = styled.button`
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  padding: 10px 20px;
-  border-radius: 20px;
-  background: #007bff;
-  color: white;
-  border: none;
-  cursor: pointer;
-  
-  &:hover {
-    background: #0056b3;
-  }
-`;
-
-interface DashboardProps {
+export interface DashboardProps {
   initialWidgets?: WidgetInstance[];
   widgetFactory: WidgetFactory;
 }
 
-interface WidgetInstance {
-  id: string;
-  type: 'popular-content' | 'search-traffic' | 'doggo';
-}
+
 
 export const Dashboard: React.FC<DashboardProps> = ({
   widgetFactory,
@@ -59,10 +33,12 @@ export const Dashboard: React.FC<DashboardProps> = ({
 
   return (
     <>
-      <DashboardContainer>
+      <div className="storybook-dashboard-container">
         {/* If we have widgets, we render them, otherwise we show a placeholder with guidance. */}
         {widgets.length === 0 && (
-          <p className="storybook-dashboard-placeholder">Start adding widgets to your dashboard by clicking the "Add Widget" button below.</p>
+          <p className="storybook-dashboard-placeholder">
+            Start adding widgets to your dashboard by clicking the "Add Widget" button below.
+          </p>
         )}
         {widgets.map(widget => 
           widgetFactory.createWidget(
@@ -71,23 +47,23 @@ export const Dashboard: React.FC<DashboardProps> = ({
             removeWidget
           )
         )}
-      </DashboardContainer>
+      </div>
 
-      <AddWidgetButton onClick={() => setIsModalOpen(true)}>
-        Add Widget
-      </AddWidgetButton>
+      <div className="storybook-dashboard-add-widget-button-container">
+        <Button primary label="Add Widget" onClick={() => setIsModalOpen(true)} />
+      </div>
 
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
         <h2>Add Widget</h2>
-        <button onClick={() => addWidget('popular-content')}>
-          Most Popular Content
-        </button>
-        <button onClick={() => addWidget('search-traffic')}>
-          Search Traffic
-        </button>
-        <button onClick={() => addWidget('doggo')}>
-          Random Dog
-        </button>
+        {widgetFactory.getWidgetTypes().map(({ type, label, description }) => (
+          <div key={type} style={{ marginBottom: '1rem' }}>
+            <Button 
+              label={label}
+              onClick={() => addWidget(type)}
+              title={description}  // Shows description on hover
+            />
+          </div>
+        ))}
       </Modal>
     </>
   );
