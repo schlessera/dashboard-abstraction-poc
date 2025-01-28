@@ -8,15 +8,17 @@ This project demonstrates a flexible and extensible dashboard architecture using
 
 ```mermaid
 graph TD
-    Dashboard[Dashboard Component] --> |Creates| WF[Widget Factory]
+    Dashboard[Dashboard] --> |Creates| WF[Widget Factory]
     Dashboard --> |Manages State| WS[Widget State]
-    WF --> |Creates| W1[Widget 1]
-    WF --> |Creates| W2[Widget 2]
-    WF --> |Creates| W3[Widget 3]
-    W1 --> |Uses| DP1[Data Provider]
-    W2 --> |Uses| DP2[Data Provider]
-    W3 --> |Uses| RDP[Remote Data Provider]
-    RDP --> |Uses| Cache[Cache Service]
+    WF --> |Creates| W1[Widget Instance]
+    W1 --> |Uses| DP[Data Provider]
+    W1 --> |Uses| CS[Cache Service]
+    
+    subgraph Data Sources
+        DP --> |Fetches| API[Remote API]
+        DP --> |Loads| Files[JSON Files]
+        DP --> |Uses| Mock[Mock Data]
+    end
 ```
 
 ### Widget Creation Flow
@@ -27,104 +29,34 @@ sequenceDiagram
     participant WF as Widget Factory
     participant W as Widget
     participant DP as Data Provider
+    participant CS as Cache Service
     
     D->>WF: createWidget(id, type)
     WF->>W: create(props)
-    W->>DP: fetch data
-    DP-->>W: return data
+    W->>CS: check cache
+    alt Cache Hit
+        CS-->>W: return cached data
+    else Cache Miss
+        W->>DP: fetch data
+        DP-->>W: return data
+        W->>CS: store in cache
+    end
     W-->>D: render widget
 ```
 
-## Key Features
+## Features
 
-### 1. Decoupled Architecture
-- Dashboard is unaware of specific widget implementations
-- Widgets are self-contained and independently maintainable
-- Widget Factory handles widget creation and configuration
+### Data-Driven Widgets
+- Remote data fetching with caching
+- Multiple data source support (APIs, JSON files)
+- Automatic error handling
+- Loading states
+- Type-safe data handling
 
-### 2. Flexible Data Handling
-- Abstract DataProvider interface
-- RemoteDataProvider for external API calls
-- Built-in caching mechanism for remote data
-- Support for different data types (JSON, images, etc.)
-
-### 3. Widget Management
-- Dynamic widget addition/removal
-- Centralized widget state management
-- Shared widget controls (e.g., remove button)
-- Automatic widget type discovery through factory
-
-### 4. Component Patterns
-- Higher-order components for shared functionality
-- Render props for flexible content rendering
-- Custom hooks for data fetching and state management
-
-## Getting Started
-
-### Prerequisites
-- Node.js (v18 or higher)
-- npm or yarn
-
-### Installation
-```bash
-npm install
-```
-
-### Running Storybook
-```bash
-npm run storybook
-```
-This will start Storybook on http://localhost:6006
-
-### Building Storybook
-```bash
-npm run build-storybook
-```
-
-## Widget Development
-
-### Creating a New Widget
-
-1. Create widget component:
-```typescript
-export const MyWidget: React.FC<WidgetProps> = ({ id, onRemove }) => {
-  return (
-    <Widget id={id} onRemove={onRemove}>
-      {/* Widget content */}
-    </Widget>
-  );
-};
-```
-
-2. Add to WidgetFactory:
-```typescript
-export class WidgetFactory {
-  private static readonly widgetTypes = [
-    {
-      type: 'my-widget',
-      label: 'My Widget',
-      description: 'Description'
-    },
-    // ...
-  ];
-
-  createWidget(id: string, type: string) {
-    switch (type) {
-      case 'my-widget':
-        return <MyWidget id={id} />;
-      // ...
-    }
-  }
-}
-```
-
-## Features in Detail
-
-### Remote Data Handling
-- Automatic caching of remote data
-- Loading state management
-- Error handling
-- Configurable cache duration
+### Table Widget System
+- Dynamic column configuration
+- Automatic title adaptation
+- Data caching
 
 ### Widget Factory
 - Central registry of available widgets
@@ -137,6 +69,7 @@ export class WidgetFactory {
 - Add/remove widgets
 - Widget state persistence
 - Empty state handling
+- Responsive grid system
 
 ## Architecture Benefits
 
@@ -155,18 +88,74 @@ export class WidgetFactory {
    - Abstract data handling
    - Common widget features
 
-4. **Type Safety**
-   - Full TypeScript support
-   - Type-safe widget creation
-   - Compile-time error checking
+## Getting Started
 
-## Contributing
+1. Install dependencies:
+```bash
+npm install
+```
 
-1. Create a new branch
-2. Add your changes
-3. Add appropriate stories to Storybook
-4. Submit a pull request
+2. Run Storybook:
+```bash
+npm run storybook
+```
 
-## License
+3. Build for production:
+```bash
+npm run build
+```
 
-MIT
+## Development
+
+### Adding a New Widget
+
+1. Create widget component
+
+```typescript
+export const MyWidget: React.FC<MyWidgetProps> = ({ id, title, onRemove }) => {
+  return (
+    <Widget id={id} title={title} onRemove={onRemove}>
+      {/* Widget content */}
+    </Widget>
+  );
+};
+```
+
+2. Add to WidgetFactory
+
+```typescript
+export class WidgetFactory {
+  private static readonly widgetTypes: WidgetTypeInfo[] = [
+    {
+      type: 'my-widget',
+      label: 'My Widget',
+      description: 'My Widget description'
+    },
+    //...
+  ];
+
+  createWidget(widgetId: string, type: WidgetInstance['type'], onRemove?: (id: string) => void): React.ReactElement {
+    switch (type) {
+      case 'my-widget':
+        return <MyWidget key={widgetId} id={widgetId} onRemove={onRemove} />;
+      //...
+    }
+  }
+}
+```
+
+## Project Structure
+
+```
+src/
+  components/
+    Dashboard/      # Dashboard component and layout
+    Widget/         # Widget components and base classes
+  services/
+    DataProvider.ts # Data fetching abstraction
+    WidgetFactory.ts # Widget creation and management
+  storybook/
+    stories/        # Component stories
+public/
+  fixtures/         # JSON data files
+```
