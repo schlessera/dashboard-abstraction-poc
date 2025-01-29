@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
 import { Modal } from '../../components/Modal/Modal';
+import { Button } from '../../components/Button/Button';
 
 const meta = {
   title: 'Components/Modal',
@@ -33,7 +34,7 @@ export const OpenModal: Story = {
       <div>
         <h2>Sample Modal</h2>
         <p>This is modal content</p>
-        <button onClick={() => console.log('Action')}>Click Me</button>
+        <Button label="Click Me" onClick={() => console.log('Action')} />
       </div>
     ),
   },
@@ -44,12 +45,12 @@ export const InteractiveModal = {
     const [isOpen, setIsOpen] = useState(false);
     return (
       <>
-        <button onClick={() => setIsOpen(true)}>Open Modal</button>
+        <Button label="Open Modal" onClick={() => setIsOpen(true)} />
         <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
           <div>
             <h2>Interactive Modal</h2>
             <p>Click outside or press ESC to close</p>
-            <button onClick={() => setIsOpen(false)}>Close</button>
+            <Button label="Close" onClick={() => setIsOpen(false)} />
           </div>
         </Modal>
       </>
