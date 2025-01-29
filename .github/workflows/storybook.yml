@@ -50,13 +50,5 @@ jobs:
           path: './storybook-static'
 
       - name: Deploy to GitHub Pages
-        if: success()
-        uses: crazy-max/ghaction-github-pages@v3
-        with:
-          target_branch: gh-pages
-          build_dir: storybook-static
-          keep_history: true
-          jekyll: false
-          fqdn: schlessera.github.io
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        id: deployment
+        uses: actions/deploy-pages@v4
