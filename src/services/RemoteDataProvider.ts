@@ -12,10 +12,12 @@ export interface RemoteDataProviderProps {
 function getBaseUrl(): string {
   // We need special handling on GitHub Pages, as the base URL is not the same
   // as the origin.
+  const githubPagesUrl = 'https://schlessera.github.io';
   let baseUrl = window.location.origin;
-  if (baseUrl.startsWith('https://schlessera.github.io')) {
-    baseUrl = 'https://schlessera.github.io/dashboard-abstraction-poc/';
+  if (baseUrl.startsWith(githubPagesUrl)) {
+    baseUrl = githubPagesUrl + '/dashboard-abstraction-poc/';
   }
+  console.log('baseUrl', baseUrl);
   return baseUrl;
 }
 

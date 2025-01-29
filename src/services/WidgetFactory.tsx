@@ -5,7 +5,7 @@ import { DoggoWidget } from '../components/Widget/DoggoWidget';
 import React from 'react';
 import { TableWidget } from '../components/Widget/TableWidget';
 
-interface WidgetInstance {
+export interface WidgetInstance {
   id: string;
   type: 'popular-content' | 'search-traffic' | 'doggo' | 'table';
 }

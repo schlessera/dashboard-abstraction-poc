@@ -8,9 +8,6 @@
   flex-direction: column;
 }
 
-.storybook-card-header {
-}
-
 .storybook-card-title {
   margin: 0;
   font-size: 1.1em;

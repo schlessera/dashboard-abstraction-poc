@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import { Modal } from '../Modal/Modal';
 import { Button } from '../Button/Button';
-import { WidgetFactory } from '../../services/WidgetFactory';
+import { WidgetFactory, WidgetInstance } from '../../services/WidgetFactory';
 import './Dashboard.css';
 
 export interface DashboardProps {
   initialWidgets?: WidgetInstance[];
   widgetFactory: WidgetFactory;
 }
-
-
 
 export const Dashboard: React.FC<DashboardProps> = ({
   widgetFactory,

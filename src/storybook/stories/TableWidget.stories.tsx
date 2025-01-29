@@ -17,7 +17,7 @@ export const Default: Story = {
   args: {
     id: 'table-1',
     title: 'Team Members',
-    filename: 'table-data.json'
+    filename: `table-data-${Math.floor(Math.random() * 20) + 1}.json`
   },
 };
 
@@ -25,7 +25,7 @@ export const WithRemoveButton: Story = {
   args: {
     id: 'table-2',
     title: 'Removable Table',
-    filename: 'table-data.json',
+    filename: `table-data-${Math.floor(Math.random() * 20) + 1}.json`,
     onRemove: (id) => console.log(`Removing table widget ${id}`),
   },
 }; 
