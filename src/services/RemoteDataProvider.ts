@@ -31,7 +31,7 @@ export class RemoteDataProvider {
     // Handle both absolute and relative URLs
     const url = endpoint.startsWith('http') 
       ? new URL(endpoint)
-      : new URL(endpoint, getBaseUrl());
+      : new URL(getBaseUrl() + endpoint);
     console.log('url', url);
 
     if (config?.params) {
