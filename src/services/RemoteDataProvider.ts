@@ -9,6 +9,16 @@ export interface RemoteDataProviderProps {
   type?: 'json' | 'image';
 }
 
+function getBaseUrl(): string {
+  // We need special handling on GitHub Pages, as the base URL is not the same
+  // as the origin.
+  let baseUrl = window.location.origin;
+  if (baseUrl.startsWith('https://schlessera.github.io')) {
+    baseUrl = 'https://schlessera.github.io/dashboard-abstraction-poc/';
+  }
+  return baseUrl;
+}
+
 export class RemoteDataProvider {
   constructor(private props: RemoteDataProviderProps) {}
 
@@ -18,7 +28,7 @@ export class RemoteDataProvider {
     // Handle both absolute and relative URLs
     const url = endpoint.startsWith('http') 
       ? new URL(endpoint)
-      : new URL(endpoint, window.location.origin);
+      : new URL(endpoint, getBaseUrl());
 
     if (config?.params) {
       Object.entries(config.params).forEach(([key, value]) => {
