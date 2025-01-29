@@ -26,11 +26,13 @@ export class RemoteDataProvider {
 
   async fetch<T>(): Promise<T> {
     const { endpoint, config, type } = this.props;
+    console.log('endpoint', endpoint);
     
     // Handle both absolute and relative URLs
     const url = endpoint.startsWith('http') 
       ? new URL(endpoint)
       : new URL(endpoint, getBaseUrl());
+    console.log('url', url);
 
     if (config?.params) {
       Object.entries(config.params).forEach(([key, value]) => {
